@@ -22,7 +22,7 @@ public class Principal {
 	
 	public static void main(String[] args) {
 
-		String s = "B4655842116372017^HERNANDEZ PASCUAL/MARIA   ^2312201000000020000000122000000";
+		String s = "B123456678116372017^JERNANDEZ PASCU/PACU   ^2312201000000020000000122000000";
 		Pattern pattern = Pattern.compile("^B\\d{12,16}\\^");
 		
 		if (args.length > 0) {
@@ -136,6 +136,7 @@ public class Principal {
 		}
 		else{
 			System.out.println("Indica lo que quieres ejecutar.");
+			System.out.println("En parámetros de ejecución de java pon....");
 			System.out.println("...............................");
 			System.out.println("HILOS -> para ejecutar prueba Hilos en java.");
 			System.out.println("PARAM_FUNCIONA -> para cualquier otra cosa.... ");
