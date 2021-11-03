@@ -312,7 +312,8 @@ public class ParametrosPL {
 		String panPCI = "";
 		
 		lValuesPCI = lValues;
-			
+		
+		System.out.println("Parametros PL --> Antes FOR... ");
 		for (int i = 0; i < lValues.size(); i++) {
 			
 			//Pista 2
@@ -344,7 +345,7 @@ public class ParametrosPL {
 			}
 			
 			//Pan
-			if (((String)lNames.get(i)).indexOf("pan") != -1) {
+			if (((String)lNames.get(i)).indexOf("pan") != -1 || ((String)lNames.get(i)).indexOf("p_pan") != -1) {
 				
 				if ((String)lValues.get(i)!=null && !((String)lValues.get(i)).equals("") ) {
 			
@@ -365,15 +366,15 @@ public class ParametrosPL {
 				}
 			}
 			
-			//Mensaje de Envio
 			if (((String)lNames.get(i)).indexOf("p_pista_1") != -1) {
 				if ((String)lValues.get(i)!=null && !((String)lValues.get(i)).equals("") && (((String)lValues.get(i)).length() > 4)) 
 				{
 					String s ="";
-					Pattern pattern = Pattern.compile("^B\\d{12,16}\\^");
-					
+					System.out.println("Parametros PL --> ESTAMOS ");
+					Pattern pattern = Pattern.compile("^B\\d{12,19}\\^");
 					s = (String)lValues.get(i);
 					Matcher matcher = pattern.matcher(s);
+					System.out.println("Parametros --> " + s);
 					if (matcher.find()) 
 					{
 						s = s.substring(0,7) + "*****" + s.substring( s.indexOf("^")  - 4 , s.length());	 
@@ -381,8 +382,6 @@ public class ParametrosPL {
 					lValuesPCI.set(i, s);
 				}
 			}
-			
-			
 			
 		}
 		
